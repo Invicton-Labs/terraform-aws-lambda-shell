@@ -3,7 +3,6 @@ resource "random_id" "lambda" {
 }
 
 locals {
-
   // If no role/policy info is given, try using the current caller's role
   lambda_role = var.lambda_role_arn == null && var.lambda_role_policies_json == null && var.lambda_role_policy_arns == null ? local.caller_role_arn : var.lambda_role_arn
 }
@@ -15,7 +14,7 @@ module "shell_lambda" {
     module.assert_single_role.checked
   ]
   source                   = "Invicton-Labs/lambda-set/aws"
-  version                  = "~> 0.5.0"
+  version                  = "~> 0.6.0"
   edge                     = false
   source_directory         = "${path.module}/lambda"
   archive_output_directory = "${path.module}/archives/"
