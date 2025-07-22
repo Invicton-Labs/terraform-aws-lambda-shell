@@ -85,10 +85,10 @@ variable "lambda_layer_arns" {
 variable "lambda_runtime" {
   description = "The runtime to use for the lambda shell."
   type        = string
-  default     = "python3.9"
+  default     = "python3.13"
   validation {
-    condition     = contains(["python3.7", "python3.8", "python3.9"], var.lambda_runtime)
-    error_message = "The `lambda_runtime` variable must be `python3.7`, `python3.8`, or `python3.9`."
+    condition     = startswith(var.lambda_runtime, "python3.")
+    error_message = "The `lambda_runtime` variable must be start with `python3.`"
   }
 }
 
