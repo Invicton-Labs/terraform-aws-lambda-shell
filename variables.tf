@@ -92,6 +92,18 @@ variable "lambda_runtime" {
   }
 }
 
+variable "cloudwatch_logs_retention_days" {
+  description = "The number of days to retain CloudWatch logs for this Lambda. Defaults to the account default."
+  type        = number
+  default     = null
+}
+
+variable "cloudwatch_logs_kms_key_id" {
+  description = "The ID of the KMS key to use for encrypting the CloudWatch logs for this Lambda."
+  type        = number
+  default     = null
+}
+
 data "aws_caller_identity" "current" {}
 
 data "aws_arn" "role" {

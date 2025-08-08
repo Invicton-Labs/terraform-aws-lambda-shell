@@ -37,8 +37,10 @@ module "shell_lambda" {
     }
     vpc_config = var.lambda_vpc_config
   }
-  role_policies                 = var.lambda_role_policies_json == null ? [] : var.lambda_role_policies_json
-  role_policy_arns              = var.lambda_role_policy_arns == null ? [] : var.lambda_role_policy_arns
-  logs_lambda_subscriptions     = var.lambda_logs_lambda_subscriptions
-  logs_non_lambda_subscriptions = var.lambda_logs_non_lambda_subscriptions
+  role_policies                  = var.lambda_role_policies_json == null ? [] : var.lambda_role_policies_json
+  role_policy_arns               = var.lambda_role_policy_arns == null ? [] : var.lambda_role_policy_arns
+  logs_lambda_subscriptions      = var.lambda_logs_lambda_subscriptions
+  logs_non_lambda_subscriptions  = var.lambda_logs_non_lambda_subscriptions
+  cloudwatch_logs_retention_days = var.cloudwatch_logs_retention_days
+  cloudwatch_logs_kms_key_id     = var.cloudwatch_logs_kms_key_id
 }
